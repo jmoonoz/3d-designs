@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
 #CONE
+# Joel Munoz
+
 
 #background
 Transform{
@@ -188,7 +190,7 @@ Transform{
 		                   material Material {
 		                           diffuseColor 255 255 255 
 		                           emissiveColor 0 0 225
-		                           transparency 0.1
+		                           transparency 0.5
 		                   }
 		           }
 		   geometry Cylinder {
