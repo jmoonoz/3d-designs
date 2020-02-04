@@ -1,0 +1,599 @@
+#VRML V2.0 utf8
+#Kick Knack
+#Joel Muñoz
+
+# Head line 8
+#body line 22
+#hat line 37
+#scarf line 49
+
+# -------------------------- viewpoint --------------------------
+Viewpoint {
+	position		0 0 100
+	orientation 	0 0 0 0.3
+	description	“frontview”
+}
+
+
+# --------------------------head--------------------------
+Transform {
+	translation 0 0 0
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Sphere{
+			radius 3.5
+			}
+		}
+
+
+}
+
+# --------------------------body--------------------------
+Transform {
+	translation 0 -6 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Sphere{
+			radius 4
+			}
+		}
+}
+
+# --------------------------Hat base--------------------------
+Transform {
+	translation 0 2.6 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 0.0 0.0}}
+			geometry Cylinder{
+			radius 5
+			height .5
+			}
+		}
+}
+
+# --------------------------Hat top--------------------------
+Transform {
+	translation 0 3 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0 0 0}}
+			geometry Cylinder{
+			radius 2.6
+			height 6
+			}
+		}
+}
+
+# --------------------------scarf--------------------------
+Transform {
+	translation 0 -2.6 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 1.0 0.0}}
+			geometry Cylinder{
+			radius 2.6
+			height .5
+			}
+		}
+}
+
+Transform {
+	translation 1 -3.5 3
+	rotation 0 .3 1 3.6
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 1.0 0.0}}
+			geometry Cylinder{
+			radius .5
+			height 4
+			}
+		}
+}
+
+#scarf ball
+Transform {
+	translation .6 -2.5 2.4
+	rotation 0 .3 1 3.6
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 1.0 0.0}}
+			geometry Sphere{
+			radius .7
+			}
+		}
+}
+
+
+
+
+# --------------------------left eye--------------------------
+Transform {
+	translation -.1 .5 3.5 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0 0 0}}
+			geometry Sphere{
+			radius .35
+			}
+		}
+}
+# --------------------------right eye--------------------------
+Transform {
+	translation .6 .5 3.5 
+	children DEF CIR Shape{  appearance Appearance {
+				material Material { diffuseColor 0 0 0}
+				}
+			geometry Sphere{
+			radius .20
+			}
+		}
+}
+
+# -------------------------- Nose --------------------------
+Transform {
+	translation 0.3 -.2 4
+	rotation 1 0 0 1.57
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 255 2 0 }
+				} # orange
+			geometry Cone{
+			bottomRadius .5
+			height 2
+			}
+		}
+}
+
+# -------------------------- Smile --------------------------
+#small pebbles
+Transform {
+	translation 1.2 -1 3.1
+	children[ 
+		DEF Smile1 Shape{  appearance Appearance {
+					material Material { diffuseColor 0 0 0}
+					}
+					geometry Sphere{
+					radius .15
+					}
+					}
+		]
+}
+
+Transform {
+	translation 1.7 -.1 3 
+	children[ 
+		USE Smile1
+		]
+}
+
+Transform {
+	translation .1 -1.5 3.2
+	children[ 
+		USE Smile1
+		]
+}
+
+# first small pebble to the left
+Transform {
+	translation -.4 -1.5 3.1
+	children[ 
+		DEF SSM Shape{  appearance Appearance {
+					material Material { diffuseColor 0 0 0}
+					}
+					geometry Sphere{
+					radius .1
+						}
+					}
+		]
+}
+
+#last small pebble
+Transform {
+	translation 1.8 .25 2.95
+	children[ 
+		USE SSM
+		]
+}
+
+
+
+#large pebbles
+Transform {
+	translation .7 -1.3 3.1
+	children[ 
+		DEF Smile2 Shape{  appearance Appearance {
+					material Material { diffuseColor 0 0 0}
+					}
+					geometry Sphere{
+					radius .3
+					}
+					}
+		]
+}
+
+Transform {
+	translation 1.5 -.6 3.1
+	children[ 
+		USE Smile2
+		]
+}
+
+# -------------------------- eye brow --------------------------
+#left eye brow
+Transform {
+	translation 1 .8 3.2
+	rotation 0 0 1 .78
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 0.0 0.0}}
+			geometry Cylinder{
+			radius .1
+			height .6
+			}
+		}
+}
+
+# right eye brow
+Transform {
+	translation -.6 .8 3.4 
+	rotation 0 0 1 5.5
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 0.0 0.0}}
+			geometry Cylinder{
+			radius .1
+			height .8
+			}
+		}
+}
+
+# -------------------------- legs --------------------------
+Transform {
+	translation -2 -8.7 0
+	children[ 
+		 DEF JOINTS Shape{  appearance Appearance {
+					material Material { diffuseColor 255 255 255}
+					}
+					geometry Sphere{
+					radius 2
+					}
+					}
+		]
+}
+
+Transform {
+	translation 1.8 -8.7 0
+	children[ 
+		USE JOINTS
+		]
+}
+
+Transform {
+	translation -2.2 -9.6 0 
+	children DEF FOOT Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Cylinder{
+			radius 1.8
+			height 1.8
+			}
+		}
+}
+Transform {
+	translation 2 -9.6 0 
+	children USE FOOT
+}
+
+
+
+# -------------------------- buttons --------------------------
+Transform {
+	translation -.4 -3.8 3.3
+	children[ 
+		DEF BBall Shape{  appearance Appearance {
+					material Material { diffuseColor 0 0 0}
+					}
+					geometry Sphere{
+					radius .5
+					}
+					}
+		]
+}
+
+Transform{
+	translation -.4 -6.4 4
+	children[
+		USE BBall
+	]
+}
+
+Transform{
+	translation -.8 -5 4
+	children[
+		USE Smile2
+	]
+}
+
+# -------------------------- Arms --------------------------
+
+#left arm
+Transform {
+	translation -3.3 -4.7 0
+	children[ 
+		USE JOINTS
+		]
+}
+
+Transform {
+	translation -4.5 -5.2 0 
+	rotation 0 0 1 5.5
+	children DEF ARM Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Cylinder{
+			radius 1.5
+			height 3
+			}
+		}
+}
+
+#right arm
+Transform {
+	translation 3 -4.7 0
+	children[ 
+		USE JOINTS
+		]
+}
+
+Transform {
+	translation 5.4 -2.6 0
+	children[ 
+		Shape{
+			appearance Appearance{
+				material Material { 
+					diffuseColor 255 255 255
+					}
+				}
+			geometry Sphere{
+			radius 1.6
+			}	
+		}
+		]
+}
+
+Transform{
+	translation 4.5 -3.6 0
+	rotation 0 0 1 2.36
+	children USE ARM
+
+}
+
+# -------------------------- globe --------------------------
+
+Transform {
+	translation 0 0 0 
+	children Shape{  appearance Appearance {
+				material Material { 
+				diffuseColor 255 255 255
+				transparency 0.9
+				}}
+			geometry Sphere{
+			radius 40}
+		}
+
+
+}
+
+#globe base
+Transform {
+	translation 1.5 -20 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 2 8 10}}
+			geometry Cylinder{
+			radius 40
+			height 20
+			top FALSE
+			}
+		}
+}
+
+
+
+Transform {
+	translation 1.5 -20 0 
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Cylinder{
+			radius 50
+			height 5
+			}
+		}
+}
+
+Transform {
+	translation 1.5 -25 0
+	children DEF BG Shape{  
+	appearance DEF theTexture Appearance {
+      texture ImageTexture {
+         url "Bottom.jpg"
+      }
+   }
+			geometry Cylinder{
+			radius 40
+			height 30
+			side FALSE
+			bottom FALSE
+			}
+		}
+}
+
+#back ground
+
+Transform {
+	translation .7 0 -10 
+	rotation 1 0 0 1.57
+	children DEF BG Shape{  
+	appearance DEF theTexture Appearance {
+      texture ImageTexture {
+         url "BG3.jpg"
+      }
+   }
+			geometry Cylinder{
+			radius 38
+			height 2
+			bottom FALSE
+			}
+		}
+}
+
+
+# -------------------------- jack hammer --------------------------
+
+Transform {
+	translation 20 -8 0 
+	rotation 1 0 0 1.57
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 255 1 0}}
+			geometry Cylinder{
+			radius 2
+			height 5
+			}
+		}
+}
+#jack hammber middle cylinder
+Transform {
+	translation 20 -8 0 
+	rotation 1 0 0 1.57
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0 0 0}}
+			geometry Cylinder{
+			radius .5
+			height 10
+			}
+		}
+}
+
+#jack hammer handles
+Transform {
+	translation 20 -8 -4.5 
+	rotation 0 0 1 1.57
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0 0 0}}
+			geometry Cylinder{
+			radius .5
+			height 5
+			}
+		}
+}
+
+
+#jack hammer top cylinder
+Transform {
+	translation 20 -8 -1.9 
+	rotation 1 0 0 1.57
+	children DEF JHC Shape{  appearance Appearance {
+				material Material { diffuseColor 255 1 0}}
+			geometry Cylinder{
+			radius 2.5
+			height 1
+			}
+		}
+}
+
+Transform {
+	translation 20 -8 1.9 
+	rotation 1 0 0 1.57
+	children USE JHC
+}
+
+Transform {
+	translation 20 -8 -1.9 
+	
+	children DEF JHS Shape{  appearance Appearance {
+				material Material { diffuseColor 255 1 0}}
+			geometry Sphere{
+			radius 2
+			}
+		}
+}
+
+Transform {
+	translation 20 -8 1.9 
+	
+	children USE JHS
+}
+
+#cone tip
+Transform {
+	translation 20 -8 6
+	rotation 1 0 0 1.57
+	children Shape{  appearance Appearance {
+				material Material { diffuseColor 0.0 0.0 0.0}}
+			geometry Cone{}
+		}
+}
+
+
+# -------------------------- snow --------------------------
+
+
+Transform {
+	translation 4.5 0 20 
+	children DEF SNOW Shape{  appearance Appearance {
+				material Material { diffuseColor 255 255 255}}
+			geometry Sphere{
+			radius .25
+			}
+		}
+}
+
+Transform {
+	translation -20 10 20 
+	children USE SNOW
+}
+
+Transform {
+	translation -20 20 10 
+	children USE SNOW
+}
+
+Transform {
+	translation -30 20 10 
+	children USE SNOW
+}
+
+Transform {
+	translation 30 20 15 
+	children USE SNOW
+}
+
+Transform {
+	translation 25 20 8
+	children USE SNOW
+}
+
+Transform {
+	translation 4 20 17
+	children USE SNOW
+}
+
+Transform {
+	translation 0 24 15
+	children USE SNOW
+}
+
+Transform {
+	translation -4 15 17
+	children USE SNOW
+}
+
+Transform {
+	translation -4 10 10
+	children USE SNOW
+}
+
+Transform {
+	translation 20 5 17
+	children USE SNOW
+}
+
+
+
+
+
+
+
+
+
+
+
